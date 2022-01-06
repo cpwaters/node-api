@@ -1,0 +1,29 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "RESTapi",
+  "main": "server.js",
+  "scripts": {
+    "devStart": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cpwaters/node-api.git"
+  },
+  "author": "C Waters",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cpwaters/node-api/issues"
+  },
+  "homepage": "https://github.com/cpwaters/node-api#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "knex": "^0.95.15",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.15"
+  }
+}
