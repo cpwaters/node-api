@@ -1,42 +1,25 @@
 require('dotenv').config();
+const Bluebird = require('bluebird');
 const mysql = require('mysql2');
+// const bluebird = require('bluebird');  
 
 const client = mysql.createConnection({
     user : process.env.DB_USER,
     host : process.env.DB_HOST,
-    // database : process.env.DB_NAME,
+    database : process.env.DB_NAME,
     port: process.env.DB_PORT,
     password : process.env.DB_PASSWORD,
+    // Promise: bluebird,
+    // rowsAsArray : true,
 });
 
-client.connect((err, res) => {
-    if (err){
-        console.log(err);
-        throw err;
-    }else {
-        console.log(`Connected to db`);
-    }
-})
+console.log(`Connected to database: ${client.config.database}`);
 
-// make connection global
-global.db = client;
+// DEV DEBUG (delete/comment for production)
+// console.error(`User: ${client.config.user}`);
+// console.error(`host: ${client.config.host}`);
+// console.error(`port: ${client.config.port}`);
+// console.error(`password: ${client.config.password}`);
+// console.error(`database: ${client.config.database}`);
 
-// client.query('SELECT NOW()', (err, res) => {
-//     if (err){
-//         console.log(err);
-//         throw err;
-//     }else {
-//         console.log('Connected to db', res);
-//     }
-// })
-
-// const knex = require('knex')({
-//     client: 'mysql',
-//     connection: {
-//       host : '127.0.0.1',
-//       port : 3306,
-//       user : 'root',
-//       password : '20nialL05',
-//       database : 'myapp_test'
-//     }
-//   });
+module.exports = { client }

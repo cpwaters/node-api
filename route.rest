@@ -1,0 +1,16 @@
+GET http://localhost:5555/api/users
+
+###
+
+GET http://localhost:5555/api/users/1
+
+###
+
+POST http://localhost:5555/api/users/create/action
+Content-Type: application/json
+
+{
+    "name":"John Smith",
+    "email":"j.s@bitter.com",
+    "password":"smoothflow99"
+}
